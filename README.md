@@ -1,21 +1,36 @@
-# Log Analysis | Synthetic Log Generator
+# Synthetic Log Generator & Analysis
 
-This small project generates synthetic host logs in JSON Lines format to help test analysis tools and notebooks.
+This project generates synthetic host/system logs in JSON Lines format to help test analysis workflows and notebooks.  
+The data is fully simulated, avoiding any real user or host information, while mimicking realistic patterns.
 
-The original analysis used a private dataset and is excluded from this repository for privacy reasons. The synthetic logs here are generated to resemble statistical properties of the original data while avoiding any real user or host identifiers.
+> **Note:** The original analysis used a private dataset and is excluded from this repository. The synthetic logs are generated to resemble statistical properties of the original data without exposing any real user or host identifiers.
 
-The generator writes a JSON Lines file where each line is a JSON object with the following fields:
+## Key Features
 
-- `host`: hostname where the event occurred
-- `uid`: numeric user id
-- `username`: account name
-- `ip`: source IP address
-- `timestamp`: ISO8601 timestamp (UTC)
-- `pid`, `ppid`: process id and parent process id (may be null)
-- `process_name`: name of the process
+- Generates events across multiple hosts and users
+- Includes anomalous traffic spikes or dips
+- Flags suspicious behaviours via high activity, multiple IPs, or unusual process activity
+- Simulates process chains using PID–PPID relationships
+- Fully compatible with log analysis pipelines and anomaly detection experiments
 
-Files
+## Log Format
 
-- `generate_logs.py`: generator script
-- `synthetic_logs.json`: sample output produced by the generator
-- `log_analysis.ipynb`: notebook showing common analyses (events/day, top IPs, suspicious users, process chains)
+Each line in the JSON Lines file represents a single event with the following fields:
+
+- `host` – hostname where the event occurred  
+- `uid` – numeric user ID  
+- `username` – account name  
+- `ip` – source IP address  
+- `timestamp` – ISO8601 timestamp (UTC)  
+- `pid`, `ppid` – process ID and parent process ID (may be null)  
+- `process_name` – name of the process  
+
+## Files Included
+
+- `generate_logs.py` – Python script to generate logs  
+- `synthetic_logs.json` – Sample output produced by the generator  
+- `log_analysis.ipynb` – Notebook demonstrating common analyses:
+  - Events per day
+  - Top IPs
+  - Suspicious users
+  - Process chains
