@@ -18,4 +18,4 @@ Files
 
 - `generate_logs.py`: generator script
 - `synthetic_logs.json`: sample output produced by the generator
-- `log_analysis.ipynb`: example notebook showing common analyses (events/day, top IPs, suspicious users, process chains)
+- `log_analysis.ipynb`: notebook showing common analyses (events/day, top IPs, suspicious users, process chains)
