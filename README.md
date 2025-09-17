@@ -1,5 +1,6 @@
 # Synthetic Log Generator & Analysis
 
+## Description
 This project generates synthetic host/system logs in JSON Lines format to help test analysis workflows and notebooks.  
 The data is fully simulated, avoiding any real user or host information, while mimicking realistic patterns.
 
