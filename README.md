@@ -2,12 +2,20 @@
 
 This small project generates synthetic host logs in JSON Lines format to help test analysis tools and notebooks.
 
-Original analysis was done on a private dataset provided as a task by Yandex and excluded for privacy concerns.
+The original analysis used a private dataset and is excluded from this repository for privacy reasons. The synthetic logs here are generated to resemble statistical properties of the original data while avoiding any real user or host identifiers.
 
-The output is a JSON Lines file where each line is a JSON object with fields: host, uid, username, ip, timestamp (ISO8601Z), pid, ppid, process_name.
+The generator writes a JSON Lines file where each line is a JSON object with the following fields:
+
+- `host` — hostname where the event occurred
+- `uid` — numeric user id
+- `username` — account name
+- `ip` — source IP address
+- `timestamp` — ISO8601 timestamp (UTC)
+- `pid`, `ppid` — process id and parent process id (may be null)
+- `process_name` — name of the process
 
 Files
 
 - `generate_logs.py` — generator script
-- `synthetic_logs.json` — generated logs (similar to original dataset)
-- `log_analysis.ipynb` — notebook with log analysis
+- `synthetic_logs.json` — sample output produced by the generator
+- `log_analysis.ipynb` — example notebook showing common analyses (events/day, top IPs, suspicious users, process chains)
